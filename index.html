@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module">
+        import Chatbox from 'https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js';
+      
+        const widget = await Chatbox.initBubble({
+          agentId: 'cm4bfrbqo0mdx2056lxxr0ost',
+          
+          // optional 
+          // If provided will create a contact for the user and link it to the conversation
+          contact: {
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'customer@email.com',
+            phoneNumber: '+33612345644',
+            userId: '42424242',
+          },
+          // optional
+          // Override initial messages
+          initialMessages: [
+            'Hello Georges how are you doing today?',
+            'How can I help you ?',
+          ],
+          // optional
+          // Provided context will be appended to the Agent system prompt
+          context: "The user you are talking to is John. Start by Greeting him by his name.",
+        });
+      
+        // open the chat bubble
+        widget.open();
+      
+        // close the chat bubble
+        widget.close()
+      
+        // or 
+        widget.toggle()
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gym Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product">
+                <img src="dumbbell.jpg" alt="Dumbbell">
+                <h3>Dumbbell</h3>
+                <p>Price: $25.00</p>
+                <button onclick="openModal('Dumbbell')">Order</button>
+            </div>
+            <div class="product">
+                <img src="yoga-mat.jpg" alt="Yoga Mat">
+                <h3>Yoga Mat</h3>
+                <p>Price: $20.00</p>
+                <button onclick="openModal('Yoga Mat')">Order</button>
+            </div>
+            <div class="product">
+                <img src="treadmill.jpg" alt="Treadmill">
+                <h3>Treadmill</h3>
+                <p>Price: $500.00</p>
+                <button onclick="openModal('Treadmill')">Order</button>
+            </div>
+            <div class="product">
+                <img src="kettlebell.jpg" alt="Kettlebell">
+                <h3>Kettlebell</h3>
+                <p>Price: $30.00</p>
+                <button onclick="openModal('Kettlebell')">Order</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Welcome to the Gym Store! We provide high-quality gym equipment to help you achieve your fitness goals.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@gymstore.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Gym Store. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Order Equipment</h2>
+            <p id="modalProductName"></p>
+            <h3>Select Equipment Type:</h3>
+            <ul>
+                <li>Dumbbell</li>
+                <li>Barbell</li>
+                <li>Kettlebell</li>
+                <li>Resistance Bands</li>
+                <li>Yoga Mat</li>
+                <li>Treadmill</li>
+            </ul>
+            <button onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
